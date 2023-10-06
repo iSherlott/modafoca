@@ -2,7 +2,7 @@
 
 namespace mf.domain.Repositories
 {
-    public interface IMinecraftRepository
+    public interface IDiscordRepository
     {
         Task<Minecraft> create(Minecraft minecraft);
         Task<Minecraft> update(Minecraft minecraft);

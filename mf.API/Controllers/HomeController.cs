@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace mf.API.Controllers
 {
@@ -16,7 +15,6 @@ namespace mf.API.Controllers
         //}
 
         [HttpGet()]
-
         public async Task<IActionResult> isOnline()
         {
                 return Ok(true);

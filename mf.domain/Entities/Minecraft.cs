@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace mf.domain.Entities
 {
+    [Table("users", Schema = "minecraft")]
     public class Minecraft : BaseEntity
     {
         public string name { get; private set; }

@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace mf.domain.Validation
 {
     public class Validatable
     {
+        [NotMapped]
         public List<string> Errors { get; private set; } = new List<string>();
+        [NotMapped]
         public bool isValid { get; private set; } = true;
         public void addError(string error) 
         { 
