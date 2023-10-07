@@ -15,9 +15,9 @@ namespace mf.API.Controllers
         //}
 
         [HttpGet()]
-        public async Task<IActionResult> isOnline()
+        public IActionResult isOnline()
         {
-                return Ok(true);
+            return Ok(true);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using mf.infra.Data;
+﻿using mf.domain.Repositories;
+using mf.infra.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
