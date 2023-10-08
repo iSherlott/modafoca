@@ -10,7 +10,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mf.API", "mf.API\mf.API.csp
 		{BEBFE9F1-47C3-43F8-8C46-62BCE974EB48} = {BEBFE9F1-47C3-43F8-8C46-62BCE974EB48}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mf.infra", "mf.infra\mf.infra.csproj", "{BEBFE9F1-47C3-43F8-8C46-62BCE974EB48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mf.infra", "mf.infra\mf.infra.csproj", "{BEBFE9F1-47C3-43F8-8C46-62BCE974EB48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mf.ioc", "mf.ioc\mf.ioc.csproj", "{DA39047A-8547-4CAA-A6FA-944E7755162F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +32,10 @@ Global
 		{BEBFE9F1-47C3-43F8-8C46-62BCE974EB48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEBFE9F1-47C3-43F8-8C46-62BCE974EB48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEBFE9F1-47C3-43F8-8C46-62BCE974EB48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA39047A-8547-4CAA-A6FA-944E7755162F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA39047A-8547-4CAA-A6FA-944E7755162F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA39047A-8547-4CAA-A6FA-944E7755162F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA39047A-8547-4CAA-A6FA-944E7755162F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

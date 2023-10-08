@@ -7,13 +7,6 @@ namespace mf.API.Controllers
     public class HomeController : ControllerBase
     {
 
-        //private readonly ILogger _logger;
-
-        //public HomeController(ILogger logger)
-        //{
-        //    _logger = logger;   
-        //}
-
         [HttpGet()]
         public IActionResult isOnline()
         {

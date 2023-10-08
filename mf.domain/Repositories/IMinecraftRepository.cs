@@ -6,7 +6,9 @@ namespace mf.domain.Repositories
     {
         Task create(Minecraft minecraft);
         Task<Minecraft> update(Minecraft minecraft);
-        Task<Minecraft> delete(Guid id);
+        Task<bool> delete(Guid id);
         Task<Minecraft> search(Guid id);
+        Task<List<Minecraft>> getAll();
+
     }
 }

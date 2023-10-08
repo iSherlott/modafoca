@@ -19,7 +19,10 @@ namespace mf.infra.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.HasDefaultSchema("public");
+
             modelBuilder.ApplyConfiguration(new MinecraftMapping());
+            modelBuilder.ApplyConfiguration(new DiscordMapping());
+
         }
     }
 }

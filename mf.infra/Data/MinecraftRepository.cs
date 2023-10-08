@@ -1,5 +1,7 @@
 ﻿using mf.domain.Entities;
 using mf.domain.Repositories;
+using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 
 namespace mf.infra.Data
 {
@@ -16,19 +18,34 @@ namespace mf.infra.Data
             await _context.SaveChangesAsync();
         }
 
-        public Task<Minecraft> delete(Guid id)
+        public async Task<bool> delete(Guid id)
         {
-            throw new NotImplementedException();
+            var model = await _context.Minecraft.Where(x => x.id == id).FirstAsync();
+            if (model != null) return false;
+
+            _context.Minecraft.Remove(model);
+
+            return true;
         }
 
-        public Task<Minecraft> search(Guid id)
+        public async Task<List<Minecraft>> getAll()
         {
-            throw new NotImplementedException();
+            var models = await _context.Minecraft.ToListAsync();
+            return models;
         }
 
-        public Task<Minecraft> update(Minecraft minecraft)
+        public async Task<Minecraft> search(Guid id)
         {
-            throw new NotImplementedException();
+            var model = _context.Minecraft.FirstOrDefault(x => x.id == id);
+            return model;
+        }
+
+        public async Task<Minecraft> update(Minecraft minecraft)
+        {
+            _context.Minecraft.Update(minecraft);
+
+            var model = await _context.Minecraft.FirstOrDefaultAsync(x => x.id == minecraft.id);
+            return model;
         }
     }
 }

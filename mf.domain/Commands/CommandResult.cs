@@ -3,27 +3,39 @@ using System.Net;
 
 namespace mf.domain.Commands
 {
-    public class CommandResult<T> : ICommandResult
+    public class CommandResult : ICommandResult
     {
-        public T Data { get; }
-        public List<string> Errors { get; }
+        public object Data { get; }
+        public List<string> Errors { get; } = new();
         public HttpStatusCode Status { get; }
 
-        public CommandResult(T data, List<string>? errors = null, HttpStatusCode status = HttpStatusCode.OK)
+        public CommandResult(object data, HttpStatusCode status, List<string> errors)
         {
-            if (data == null)
-            {
-                throw new ArgumentNullException(nameof(data), "Data cannot be null.");
-            }
-
             Data = data;
             Errors = errors ?? new List<string>();
             Status = status;
         }
 
-        public object data { get; set; }
-        public List<string> errors { get; set; } = new();
+        public CommandResult(object data, HttpStatusCode status, string error)
+        {
+            Data = data;
+            Errors.Add(error);
+            Status = status;
+        }
 
-        public HttpStatusCode status { get; set; }
+        public CommandResult(object data)
+        {
+            Data = data;
+        }
+
+        public CommandResult(HttpStatusCode status)
+        {
+            Status = status;
+        }
+
+        public CommandResult(string error)
+        {
+            Errors.Add(error);
+        }
     }
 }

@@ -1,7 +1,8 @@
-using mf.domain.Entities;
+using mf.domain.Commands;
+using mf.domain.Handlers;
 using mf.domain.Repositories;
-using mf.infra.Data;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace mf.API.Controllers
 {
@@ -9,24 +10,25 @@ namespace mf.API.Controllers
     [ApiController]
     public class MinecraftController : ControllerBase
     {
-        private readonly MinecraftRepository _minecraftRepository;
-        public MinecraftController(MinecraftRepository minecraftRepository)
+        private readonly IMinecraftRepository _minecraftRepository;
+        public MinecraftController(IMinecraftRepository minecraftRepository)
         {
             _minecraftRepository = minecraftRepository;
         }
 
-        //private readonly ILogger _logger;
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAll()
+        {
+            var models = await _minecraftRepository.getAll();
+            return Ok(new CommandResult(models));
+        }
 
-        //public MinecraftController(ILogger logger)
-        //{
-        //    _logger = logger;   
-        //}
 
         [HttpPost()]
-        public async Task<IActionResult> CreateUserAsync([FromBody] Minecraft minecraft)
+        public async Task<IActionResult> CreateUserAsync([FromBody] CreateMinecraftCommand command, [FromServices] MinecraftHandler handler)
         {
-            //await _minecraftRepository.create(minecraft);
-            return Ok(minecraft);
+            var handle = await handler.Handle(command);
+            return Ok(handle);
         }
     }
 }

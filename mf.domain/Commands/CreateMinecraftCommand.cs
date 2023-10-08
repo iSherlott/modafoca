@@ -1,13 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using mf.domain.Commands.Contracts;
+using mf.domain.Validation;
 
-namespace mf.domain.Commands
+namespace mf.domain.Commands 
 {
-    public class CreateMinecraftCommand
+    public class CreateMinecraftCommand : ValidatableTypes, ICommand
     {
 
+        public CreateMinecraftCommand(string name, Guid id)
+        {
+            this.name = name;
+            this.id = id;
+        }
+
+        public string name { get; set; }
+        public Guid id { get; set; }
+        
+        public bool isCommandvalid() 
+        {
+            ValidateStringNotEmpty(name, "Name");
+            ValidateGuidNotEmpty(id, "Id");
+
+            return this.isValid;
+        }
     }
 }

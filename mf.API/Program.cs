@@ -1,3 +1,4 @@
+using mf.API.Configurations;
 using mf.infra.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,7 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 //builder.Services.AddLogging<ILogger>();
 
+builder.Services.AddIoc();
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
